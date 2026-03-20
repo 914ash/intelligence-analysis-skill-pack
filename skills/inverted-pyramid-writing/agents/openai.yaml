@@ -1,0 +1,4 @@
+interface:
+  display_name: "Inverted Pyramid Writing"
+  short_description: "Help with Inverted Pyramid Writing tasks"
+  default_prompt: "Use $inverted-pyramid-writing to reorganize this draft so the most important judgment appears first."

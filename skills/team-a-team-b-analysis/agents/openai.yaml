@@ -1,0 +1,4 @@
+interface:
+  display_name: "Team A / Team B Analysis"
+  short_description: "Help with Team A / Team B Analysis tasks"
+  default_prompt: "Use $team-a-team-b-analysis to challenge this high-stakes judgment with a strong Team B case and a final synthesis."

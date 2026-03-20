@@ -1,0 +1,4 @@
+interface:
+  display_name: "Craft Intelligence Question"
+  short_description: "Help with Craft Intelligence Question tasks"
+  default_prompt: "Use $craft-intelligence-question to turn this vague request into a tight intelligence question with supporting questions and indicators."

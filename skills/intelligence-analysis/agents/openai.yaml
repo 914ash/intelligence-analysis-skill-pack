@@ -1,0 +1,4 @@
+interface:
+  display_name: "Intelligence Analysis"
+  short_description: "Help with Intelligence Analysis tasks"
+  default_prompt: "Use $intelligence-analysis to synthesize this evaluated evidence into a structured intelligence judgment with alternatives and caveats."

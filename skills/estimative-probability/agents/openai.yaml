@@ -1,0 +1,4 @@
+interface:
+  display_name: "Estimative Probability"
+  short_description: "Help with Estimative Probability tasks"
+  default_prompt: "Use $estimative-probability to convert this judgment into disciplined confidence language with caveats."

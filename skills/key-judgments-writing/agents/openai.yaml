@@ -1,0 +1,4 @@
+interface:
+  display_name: "Key Judgments Writing"
+  short_description: "Help with Key Judgments Writing tasks"
+  default_prompt: "Use $key-judgments-writing to draft concise, defensible key judgments from this analysis."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "TRACE Technique"
+  short_description: "Help with TRACE Technique tasks"
+  default_prompt: "Use $trace-technique to work through this low-evidence intelligence problem using TRACE."

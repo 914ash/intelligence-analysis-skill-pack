@@ -1,0 +1,4 @@
+interface:
+  display_name: "Alternative Analysis"
+  short_description: "Help with Alternative Analysis tasks"
+  default_prompt: "Use $alternative-analysis to generate and test credible alternative explanations for this problem."

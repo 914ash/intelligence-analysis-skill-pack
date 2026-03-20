@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research and Collection"
+  short_description: "Help with Research and Collection tasks"
+  default_prompt: "Use $research-and-collection to plan a collection pass and return a structured evidence ledger for this intelligence question."

@@ -1,0 +1,650 @@
+{
+  "entry_skill": "intelligence-analysis-router",
+  "shared_doctrine": [
+    "analytical-contract.md",
+    "source-and-evidence-discipline.md",
+    "confidence-language.md",
+    "writing-patterns.md",
+    "workflow-sequencing.md",
+    "evidence-ledger-template.md",
+    "autonomous-execution-policy.md"
+  ],
+  "skills": [
+    {
+      "name": "intelligence-analysis-router",
+      "title": "Intelligence Analysis Router",
+      "description": "Route intelligence-analysis requests to the right combination of framing, evidence, analytic, and writing skills. Use when an agent needs to decide which intelligence skill to apply first or how to sequence several skills for a national-security analysis task.",
+      "objective": "Classify the request, pick the next 1-3 skills, and force a traceable end-to-end workflow.",
+      "upstream": [],
+      "downstream": [
+        "find-intelligence-topics",
+        "craft-intelligence-question",
+        "research-and-collection",
+        "source-evaluation",
+        "intelligence-analysis",
+        "intelligence-writing"
+      ],
+      "companions": [
+        "workflow-sequencing",
+        "analytical-contract"
+      ],
+      "shared_doctrine": [
+        "workflow-sequencing",
+        "analytical-contract",
+        "source-and-evidence-discipline",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "find-intelligence-topics",
+      "title": "Find Intelligence Topics",
+      "description": "Generate, rank, and refine promising intelligence topics from a mission area, watchlist, or decision space. Use when an agent needs to decide what questions are worth analyzing before scoping a specific intelligence question.",
+      "objective": "Turn a broad mission area into a prioritized set of analyzable intelligence topics with rationale and next-step question seeds.",
+      "upstream": [
+        "intelligence-analysis-router"
+      ],
+      "downstream": [
+        "craft-intelligence-question",
+        "research-and-collection",
+        "evidence-gap-analysis"
+      ],
+      "companions": [
+        "critical-thinking"
+      ],
+      "shared_doctrine": [
+        "analytical-contract",
+        "workflow-sequencing",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "craft-intelligence-question",
+      "title": "Craft Intelligence Question",
+      "description": "Turn a vague prompt into a scoped intelligence question with decision relevance, actors, timeframe, and information needs. Use when the request is broad, underspecified, or missing the key judgment to answer.",
+      "objective": "Convert a loose request into a precise intelligence question and a supporting question set.",
+      "upstream": [
+        "intelligence-analysis-router",
+        "find-intelligence-topics"
+      ],
+      "downstream": [
+        "research-and-collection",
+        "formal-vs-informal-problem-solving",
+        "evidence-gap-analysis"
+      ],
+      "companions": [
+        "critical-thinking"
+      ],
+      "shared_doctrine": [
+        "analytical-contract",
+        "workflow-sequencing",
+        "evidence-ledger-template",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "research-and-collection",
+      "title": "Research and Collection",
+      "description": "Plan and execute intelligence-focused research and collection passes. Use when an agent must find relevant reporting, log sources, separate collection from analysis, or prepare an evidence set for later evaluation.",
+      "objective": "Build a disciplined evidence set without collapsing collection and judgment into the same step.",
+      "upstream": [
+        "intelligence-analysis-router",
+        "craft-intelligence-question"
+      ],
+      "downstream": [
+        "source-evaluation",
+        "evidence-gap-analysis",
+        "intelligence-analysis"
+      ],
+      "companions": [
+        "source-evaluation",
+        "evidence-ledger-template"
+      ],
+      "shared_doctrine": [
+        "workflow-sequencing",
+        "source-and-evidence-discipline",
+        "evidence-ledger-template",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "formal-vs-informal-problem-solving",
+      "title": "Formal vs Informal Problem Solving",
+      "description": "Choose whether a question needs lightweight reasoning or a formal structured analytic technique. Use when an agent must select the right level of rigor before analysis begins.",
+      "objective": "Match the problem shape and stakes to the right level of analytical structure.",
+      "upstream": [
+        "craft-intelligence-question",
+        "intelligence-analysis-router"
+      ],
+      "downstream": [
+        "analysis-of-competing-hypotheses",
+        "team-a-team-b-analysis",
+        "alternative-analysis",
+        "trace-technique",
+        "intelligence-analysis"
+      ],
+      "companions": [
+        "critical-thinking"
+      ],
+      "shared_doctrine": [
+        "workflow-sequencing",
+        "analytical-contract",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "critical-thinking",
+      "title": "Critical Thinking",
+      "description": "Stress-test assumptions, framing, and reasoning quality in intelligence work. Use when an agent needs to surface hidden assumptions, bias risks, missing comparisons, or weak logic in a draft judgment.",
+      "objective": "Challenge the reasoning, not just the answer.",
+      "upstream": [
+        "intelligence-analysis-router",
+        "intelligence-analysis"
+      ],
+      "downstream": [
+        "alternative-analysis",
+        "defend-analytic-conclusion",
+        "intelligence-writing"
+      ],
+      "companions": [
+        "evidence-gap-analysis"
+      ],
+      "shared_doctrine": [
+        "analytical-contract",
+        "source-and-evidence-discipline",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "source-evaluation",
+      "title": "Source Evaluation",
+      "description": "Assess source reliability, information credibility, corroboration, access, and bias. Use when an agent must decide how much weight to place on reporting before using it in analysis.",
+      "objective": "Score reporting discipline before any substantive judgment leans on it.",
+      "upstream": [
+        "research-and-collection",
+        "intelligence-analysis-router"
+      ],
+      "downstream": [
+        "intelligence-analysis",
+        "misinformation-disinformation-analysis",
+        "analysis-of-competing-hypotheses"
+      ],
+      "companions": [
+        "estimative-probability"
+      ],
+      "shared_doctrine": [
+        "source-and-evidence-discipline",
+        "confidence-language",
+        "evidence-ledger-template",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "evidence-gap-analysis",
+      "title": "Evidence Gap Analysis",
+      "description": "Identify known unknowns, collection gaps, and missing disconfirming evidence. Use when evidence is incomplete, contradictory, or too thin for a confident judgment.",
+      "objective": "Make uncertainty explicit and convert it into collection priorities.",
+      "upstream": [
+        "craft-intelligence-question",
+        "research-and-collection",
+        "intelligence-analysis"
+      ],
+      "downstream": [
+        "research-and-collection",
+        "estimative-probability",
+        "defend-analytic-conclusion"
+      ],
+      "companions": [
+        "source-evaluation"
+      ],
+      "shared_doctrine": [
+        "analytical-contract",
+        "evidence-ledger-template",
+        "confidence-language",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "estimative-probability",
+      "title": "Estimative Probability",
+      "description": "Express uncertainty with disciplined confidence language and consistent probability bands. Use when an agent must translate evidence strength into estimative terms for an intelligence product.",
+      "objective": "Make uncertainty legible, calibrated, and reusable across products.",
+      "upstream": [
+        "source-evaluation",
+        "intelligence-analysis",
+        "evidence-gap-analysis"
+      ],
+      "downstream": [
+        "key-judgments-writing",
+        "defend-analytic-conclusion",
+        "intelligence-writing"
+      ],
+      "companions": [
+        "source-evaluation"
+      ],
+      "shared_doctrine": [
+        "confidence-language",
+        "analytical-contract",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "intelligence-analysis",
+      "title": "Intelligence Analysis",
+      "description": "Synthesize evaluated reporting into structured intelligence judgments. Use when collection is in hand and the task is to integrate evidence, compare explanations, and produce findings.",
+      "objective": "Produce a traceable judgment from evaluated evidence rather than from intuition alone.",
+      "upstream": [
+        "research-and-collection",
+        "source-evaluation",
+        "formal-vs-informal-problem-solving"
+      ],
+      "downstream": [
+        "defend-analytic-conclusion",
+        "estimative-probability",
+        "intelligence-writing",
+        "key-judgments-writing"
+      ],
+      "companions": [
+        "critical-thinking",
+        "source-evaluation"
+      ],
+      "shared_doctrine": [
+        "analytical-contract",
+        "source-and-evidence-discipline",
+        "confidence-language",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "misinformation-disinformation-analysis",
+      "title": "Misinformation and Disinformation Analysis",
+      "description": "Evaluate whether reporting, narratives, or artifacts show signs of misinformation, disinformation, manipulation, or coordinated influence. Use when deceptive or contaminated information may distort analysis.",
+      "objective": "Detect distortion risks before they contaminate the analytic picture.",
+      "upstream": [
+        "source-evaluation",
+        "research-and-collection"
+      ],
+      "downstream": [
+        "intelligence-analysis",
+        "defend-analytic-conclusion"
+      ],
+      "companions": [
+        "critical-thinking"
+      ],
+      "shared_doctrine": [
+        "source-and-evidence-discipline",
+        "analytical-contract",
+        "confidence-language",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "defend-analytic-conclusion",
+      "title": "Defend Analytic Conclusion",
+      "description": "Build a defensible warrant chain for an intelligence judgment. Use when an agent must show how evidence supports the conclusion, answer challenges, or prepare a product for review.",
+      "objective": "Make the reasoning auditable under scrutiny.",
+      "upstream": [
+        "intelligence-analysis",
+        "critical-thinking",
+        "analysis-of-competing-hypotheses"
+      ],
+      "downstream": [
+        "key-judgments-writing",
+        "intelligence-writing"
+      ],
+      "companions": [
+        "estimative-probability"
+      ],
+      "shared_doctrine": [
+        "analytical-contract",
+        "confidence-language",
+        "source-and-evidence-discipline",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "intelligence-writing",
+      "title": "Intelligence Writing",
+      "description": "Turn structured findings into clear intelligence prose for decision-makers. Use when analysis is done and the output needs to be readable, concise, and action-oriented.",
+      "objective": "Translate analysis into prose without weakening the logic or caveats.",
+      "upstream": [
+        "intelligence-analysis",
+        "defend-analytic-conclusion",
+        "estimative-probability"
+      ],
+      "downstream": [
+        "bluf-writing",
+        "inverted-pyramid-writing",
+        "key-judgments-writing",
+        "analytic-title-writing"
+      ],
+      "companions": [
+        "writing-patterns"
+      ],
+      "shared_doctrine": [
+        "writing-patterns",
+        "confidence-language",
+        "analytical-contract",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "bluf-writing",
+      "title": "BLUF Writing",
+      "description": "Write Bottom Line Up Front openings for intelligence products. Use when an agent needs the lead sentence or opening paragraph to state the key judgment and why it matters.",
+      "objective": "Produce a lead that tells the consumer the answer before the details.",
+      "upstream": [
+        "intelligence-writing",
+        "key-judgments-writing"
+      ],
+      "downstream": [
+        "inverted-pyramid-writing",
+        "analytic-title-writing"
+      ],
+      "companions": [
+        "estimative-probability"
+      ],
+      "shared_doctrine": [
+        "writing-patterns",
+        "confidence-language",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "inverted-pyramid-writing",
+      "title": "Inverted Pyramid Writing",
+      "description": "Organize intelligence reporting from most important to least important. Use when an agent needs to structure a memo, brief, or note so decision-makers see the judgment first.",
+      "objective": "Sequence the product so the reader can stop early without missing the core message.",
+      "upstream": [
+        "intelligence-writing",
+        "bluf-writing"
+      ],
+      "downstream": [
+        "analytic-title-writing"
+      ],
+      "companions": [
+        "key-judgments-writing"
+      ],
+      "shared_doctrine": [
+        "writing-patterns",
+        "analytical-contract",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "what-so-what-statement",
+      "title": "What / So What Statement",
+      "description": "Craft analytical statements that pair the factual change with its significance. Use when an agent needs a crisp what happened / why it matters formulation.",
+      "objective": "Compress evidence and implication into one disciplined analytic statement.",
+      "upstream": [
+        "intelligence-analysis",
+        "intelligence-writing"
+      ],
+      "downstream": [
+        "bluf-writing",
+        "key-judgments-writing"
+      ],
+      "companions": [
+        "analytic-title-writing"
+      ],
+      "shared_doctrine": [
+        "writing-patterns",
+        "confidence-language",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "key-judgments-writing",
+      "title": "Key Judgments Writing",
+      "description": "Draft and refine key judgments for intelligence products. Use when an agent needs short, defensible, high-signal judgments with confidence and caveats.",
+      "objective": "Produce standalone judgments that can survive extraction from the full product.",
+      "upstream": [
+        "intelligence-analysis",
+        "estimative-probability",
+        "defend-analytic-conclusion"
+      ],
+      "downstream": [
+        "bluf-writing",
+        "intelligence-writing",
+        "analytic-title-writing"
+      ],
+      "companions": [
+        "what-so-what-statement"
+      ],
+      "shared_doctrine": [
+        "writing-patterns",
+        "confidence-language",
+        "analytical-contract",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "analytic-title-writing",
+      "title": "Analytic Title Writing",
+      "description": "Write precise, informative titles for intelligence products. Use when a memo, brief, or note needs a title that states the subject and angle without hype.",
+      "objective": "Give the product a title that signals subject, angle, and stakes cleanly.",
+      "upstream": [
+        "key-judgments-writing",
+        "intelligence-writing",
+        "bluf-writing"
+      ],
+      "downstream": [],
+      "companions": [
+        "what-so-what-statement"
+      ],
+      "shared_doctrine": [
+        "writing-patterns",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "analysis-of-competing-hypotheses",
+      "title": "Analysis of Competing Hypotheses",
+      "description": "Apply Analysis of Competing Hypotheses to weigh evidence against multiple explanations. Use when there are several plausible hypotheses and the task is to discriminate among them systematically.",
+      "objective": "Use inconsistency analysis to compare hypotheses rather than merely collecting support for a favorite view.",
+      "upstream": [
+        "formal-vs-informal-problem-solving",
+        "source-evaluation"
+      ],
+      "downstream": [
+        "intelligence-analysis",
+        "defend-analytic-conclusion",
+        "estimative-probability"
+      ],
+      "companions": [
+        "alternative-analysis",
+        "critical-thinking"
+      ],
+      "shared_doctrine": [
+        "analytical-contract",
+        "source-and-evidence-discipline",
+        "confidence-language",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "team-a-team-b-analysis",
+      "title": "Team A / Team B Analysis",
+      "description": "Use adversarial red-team analysis to compare a baseline judgment with the strongest competing case. Use when a high-stakes conclusion needs a structured challenge before publication.",
+      "objective": "Force the strongest opposing case into the record before finalizing the judgment.",
+      "upstream": [
+        "formal-vs-informal-problem-solving",
+        "critical-thinking"
+      ],
+      "downstream": [
+        "defend-analytic-conclusion",
+        "intelligence-analysis"
+      ],
+      "companions": [
+        "alternative-analysis"
+      ],
+      "shared_doctrine": [
+        "analytical-contract",
+        "confidence-language",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "alternative-analysis",
+      "title": "Alternative Analysis",
+      "description": "Generate and evaluate credible alternative explanations for an intelligence problem. Use when the main narrative feels too settled or when the task explicitly requires alternatives.",
+      "objective": "Keep the analysis from collapsing around the first plausible story.",
+      "upstream": [
+        "formal-vs-informal-problem-solving",
+        "critical-thinking"
+      ],
+      "downstream": [
+        "analysis-of-competing-hypotheses",
+        "defend-analytic-conclusion",
+        "intelligence-analysis"
+      ],
+      "companions": [
+        "evidence-gap-analysis"
+      ],
+      "shared_doctrine": [
+        "analytical-contract",
+        "confidence-language",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "trace-technique",
+      "title": "TRACE Technique",
+      "description": "Apply the TRACE technique to low-evidence or ambiguous cases. Use when an agent must work through threat assessment, fact reconciliation, competing explanations, and conditional evaluation under uncertainty.",
+      "objective": "Impose structure on ambiguous cases where evidence is weak but action may still be required.",
+      "upstream": [
+        "formal-vs-informal-problem-solving",
+        "source-evaluation"
+      ],
+      "downstream": [
+        "defend-analytic-conclusion",
+        "estimative-probability",
+        "intelligence-analysis"
+      ],
+      "companions": [
+        "evidence-gap-analysis"
+      ],
+      "shared_doctrine": [
+        "analytical-contract",
+        "confidence-language",
+        "source-and-evidence-discipline",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "psychological-cascades-analysis",
+      "title": "Psychological Cascades Analysis",
+      "description": "Analyze how perception, rumor, emotion, and social reinforcement may amplify a security event or narrative. Use when crowd behavior, contagion effects, or belief cascades shape the analytic question.",
+      "objective": "Model how beliefs and reactions spread, not just the initiating event.",
+      "upstream": [
+        "formal-vs-informal-problem-solving",
+        "misinformation-disinformation-analysis"
+      ],
+      "downstream": [
+        "intelligence-analysis",
+        "defend-analytic-conclusion"
+      ],
+      "companions": [
+        "node-link-analysis"
+      ],
+      "shared_doctrine": [
+        "analytical-contract",
+        "confidence-language",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "delphi-method",
+      "title": "Delphi Method",
+      "description": "Facilitate a Delphi-style expert consensus workflow with structured rounds, controlled feedback, and convergence checks. Use when an agent needs to synthesize multiple expert views on a complex intelligence question.",
+      "objective": "Run a repeatable expert-consensus process without losing question discipline or transparency.",
+      "upstream": [
+        "formal-vs-informal-problem-solving",
+        "craft-intelligence-question"
+      ],
+      "downstream": [
+        "intelligence-analysis",
+        "key-judgments-writing"
+      ],
+      "companions": [
+        "estimative-probability"
+      ],
+      "shared_doctrine": [
+        "analytical-contract",
+        "confidence-language",
+        "workflow-sequencing",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    },
+    {
+      "name": "node-link-analysis",
+      "title": "Node Link Analysis",
+      "description": "Map entities, relationships, and interaction patterns in an intelligence problem. Use when an agent must reason about networks, intermediaries, clusters, hubs, or event-to-actor linkages.",
+      "objective": "Turn fragmented relational evidence into an explicit network picture that can be challenged and updated.",
+      "upstream": [
+        "research-and-collection",
+        "source-evaluation"
+      ],
+      "downstream": [
+        "intelligence-analysis",
+        "psychological-cascades-analysis",
+        "defend-analytic-conclusion"
+      ],
+      "companions": [
+        "analysis-of-competing-hypotheses"
+      ],
+      "shared_doctrine": [
+        "analytical-contract",
+        "source-and-evidence-discipline",
+        "evidence-ledger-template",
+        "autonomous-execution-policy"
+      ],
+      "execution_mode": "autonomous_no_questions"
+    }
+  ],
+  "runtime": {
+    "target": "langgraph",
+    "no_user_questions": true,
+    "autonomous_contract": {
+      "status_values": [
+        "complete",
+        "partial",
+        "blocked"
+      ],
+      "required_fields": [
+        "status",
+        "primary_output",
+        "assumptions_used",
+        "missing_inputs",
+        "confidence",
+        "recommended_next_skill"
+      ],
+      "optional_fields": [
+        "blocker_reason"
+      ]
+    }
+  }
+}

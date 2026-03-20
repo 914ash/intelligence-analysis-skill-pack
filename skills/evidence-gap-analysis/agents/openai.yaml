@@ -1,0 +1,4 @@
+interface:
+  display_name: "Evidence Gap Analysis"
+  short_description: "Help with Evidence Gap Analysis tasks"
+  default_prompt: "Use $evidence-gap-analysis to identify the critical gaps and next collection priorities for this intelligence problem."

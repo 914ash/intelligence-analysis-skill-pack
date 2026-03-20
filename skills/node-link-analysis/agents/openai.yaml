@@ -1,0 +1,4 @@
+interface:
+  display_name: "Node Link Analysis"
+  short_description: "Help with Node Link Analysis tasks"
+  default_prompt: "Use $node-link-analysis to map the entities and relationships in this intelligence problem and tell me which links matter most."

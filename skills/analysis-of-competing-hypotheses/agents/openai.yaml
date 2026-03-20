@@ -1,0 +1,4 @@
+interface:
+  display_name: "Analysis of Competing Hypotheses"
+  short_description: "Help with Analysis of Competing Hypotheses tasks"
+  default_prompt: "Use $analysis-of-competing-hypotheses to compare multiple explanations for this intelligence problem with an ACH-style matrix."

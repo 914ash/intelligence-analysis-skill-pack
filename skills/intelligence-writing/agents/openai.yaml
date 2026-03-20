@@ -1,0 +1,4 @@
+interface:
+  display_name: "Intelligence Writing"
+  short_description: "Help with Intelligence Writing tasks"
+  default_prompt: "Use $intelligence-writing to turn these structured findings into a concise intelligence product for a decision-maker."

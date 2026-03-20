@@ -1,0 +1,31 @@
+{
+  "name": "intelligence-skill-pack",
+  "version": "2026-03-20",
+  "entry_skill": "intelligence-analysis-router",
+  "topic_discovery_skill": "find-intelligence-topics",
+  "runtime": {
+    "target": "langgraph",
+    "autonomous_no_questions": true,
+    "required_output_fields": [
+      "status",
+      "primary_output",
+      "assumptions_used",
+      "missing_inputs",
+      "confidence",
+      "recommended_next_skill"
+    ],
+    "optional_output_fields": [
+      "blocker_reason"
+    ]
+  },
+  "required_directories": [
+    "skills",
+    "references/shared",
+    "catalog"
+  ],
+  "required_files": [
+    "catalog/skill-taxonomy.json",
+    "catalog/langgraph-integration.md",
+    "README.md"
+  ]
+}

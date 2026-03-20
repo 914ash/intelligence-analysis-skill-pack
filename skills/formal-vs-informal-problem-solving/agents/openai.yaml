@@ -1,0 +1,4 @@
+interface:
+  display_name: "Formal vs Informal Problem Solving"
+  short_description: "Help with Formal vs Informal Problem Solving tasks"
+  default_prompt: "Use $formal-vs-informal-problem-solving to decide whether this problem needs a structured analytic technique and which one fits best."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "BLUF Writing"
+  short_description: "Help with BLUF Writing tasks"
+  default_prompt: "Use $bluf-writing to draft a strong BLUF opening for this intelligence product."

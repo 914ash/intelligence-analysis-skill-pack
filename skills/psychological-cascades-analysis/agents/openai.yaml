@@ -1,0 +1,4 @@
+interface:
+  display_name: "Psychological Cascades Analysis"
+  short_description: "Help with Psychological Cascades Analysis tasks"
+  default_prompt: "Use $psychological-cascades-analysis to analyze how this event or narrative could spread through rumor, emotion, and social reinforcement."

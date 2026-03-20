@@ -1,0 +1,4 @@
+interface:
+  display_name: "Defend Analytic Conclusion"
+  short_description: "Help with Defend Analytic Conclusion tasks"
+  default_prompt: "Use $defend-analytic-conclusion to build a defensible warrant chain for this intelligence judgment and address the strongest challenge."

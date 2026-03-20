@@ -1,0 +1,4 @@
+interface:
+  display_name: "Critical Thinking"
+  short_description: "Help with Critical Thinking tasks"
+  default_prompt: "Use $critical-thinking to stress-test this analysis for hidden assumptions, weak logic, and missing comparisons."

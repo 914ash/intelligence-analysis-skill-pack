@@ -1,0 +1,4 @@
+interface:
+  display_name: "Find Intelligence Topics"
+  short_description: "Help with intelligence topic selection"
+  default_prompt: "Use $find-intelligence-topics to generate strong intelligence topics and rank them for this mission area."

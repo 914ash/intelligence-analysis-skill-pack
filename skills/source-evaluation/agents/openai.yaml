@@ -1,0 +1,4 @@
+interface:
+  display_name: "Source Evaluation"
+  short_description: "Help with Source Evaluation tasks"
+  default_prompt: "Use $source-evaluation to assess the reliability and credibility of this reporting before I analyze it."

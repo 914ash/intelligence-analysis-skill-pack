@@ -1,0 +1,4 @@
+interface:
+  display_name: "Intelligence Analysis Router"
+  short_description: "Help with Intelligence Analysis Router tasks"
+  default_prompt: "Use $intelligence-analysis-router to route this intelligence question to the right skill chain and tell me the next artifact to produce."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "What / So What Statement"
+  short_description: "Help with What / So What Statement tasks"
+  default_prompt: "Use $what-so-what-statement to turn this development into a sharp what/so what analytic statement."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Delphi Method"
+  short_description: "Help with Delphi Method tasks"
+  default_prompt: "Use $delphi-method to design or run a Delphi-style consensus workflow for this intelligence question."

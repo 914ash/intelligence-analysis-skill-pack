@@ -1,0 +1,4 @@
+interface:
+  display_name: "Misinformation and Disinformation Analysis"
+  short_description: "Help with Misinformation and Disinformation Analysis tasks"
+  default_prompt: "Use $misinformation-disinformation-analysis to assess whether this reporting or narrative is misleading, manipulated, or part of a coordinated influence effort."

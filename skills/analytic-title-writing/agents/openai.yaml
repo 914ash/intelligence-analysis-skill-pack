@@ -1,0 +1,4 @@
+interface:
+  display_name: "Analytic Title Writing"
+  short_description: "Help with Analytic Title Writing tasks"
+  default_prompt: "Use $analytic-title-writing to generate a precise, informative title for this intelligence product."
