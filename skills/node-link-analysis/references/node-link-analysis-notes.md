@@ -14,3 +14,8 @@
 - Argument mapping helps separate claim structure from relationship structure.
 - ACH can be used to test rival interpretations of the same network.
 - Geovisualization can be layered onto node-link work when location materially affects interpretation.
+
+## Working Table
+
+| Node ID | Node label | Node type | Edge label | Target node | Confidence | Evidence note |
+| --- | --- | --- | --- | --- | --- | --- |

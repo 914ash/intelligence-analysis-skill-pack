@@ -25,3 +25,8 @@
 - What action or posture could change if the answer were known?
 - Can the topic be narrowed into a principal intelligence question quickly?
 - Is there a plausible evidence path, even if the evidence is incomplete?
+
+## Simple Ranking Template
+
+| Topic | Decision value | Time sensitivity | Evidence path | Distinctive analytic angle | Rank |
+| --- | --- | --- | --- | --- | --- |

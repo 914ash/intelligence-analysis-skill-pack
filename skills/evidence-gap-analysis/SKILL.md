@@ -1,6 +1,6 @@
 ---
 name: evidence-gap-analysis
-description: Identify known unknowns, collection gaps, and missing disconfirming evidence. Use when evidence is incomplete, contradictory, or too thin for a confident judgment.
+description: Make uncertainty explicit and convert it into collection priorities. Use when the current evidence base has consequential known unknowns.
 ---
 
 # Evidence Gap Analysis
@@ -9,36 +9,66 @@ description: Identify known unknowns, collection gaps, and missing disconfirming
 Make uncertainty explicit and convert it into collection priorities.
 
 ## Autonomous Execution
-- Do not ask the user clarifying questions during autonomous runs.
-- If context is missing, state assumptions and continue with the safest reversible path.
-- Return missing information in `missing_inputs` instead of prompting a human.
-- Set `status` to `blocked` only when the task is impossible or unsafe without external input.
+- Use this skill as a method guide first; keep the tradecraft artifact separate from any outer workflow envelope.
+- If context is missing, record the assumption, keep facts, inferences, assumptions, and gaps distinct, and continue on the safest reversible path.
+- When the skill is embedded in a workflow engine, preserve `status`, `assumptions_used`, `missing_inputs`, `confidence`, `recommended_next_skill`, and `blocker_reason` only when blocked.
+
+## Use When
+- The current evidence base supports partial analysis but still has consequential unknowns.
+- The consumer needs to know what is missing and why it matters.
+- The workflow needs collection priorities instead of generic caveats.
+
+## Do Not Use When
+- No meaningful evidence has been collected yet.
+- The main task is to weigh competing hypotheses rather than expose unknowns.
+- The gap list is already explicit and prioritized.
 
 ## Required Inputs
-- Question and current evidence set
-- Working judgment if one exists
-- Known constraints on collection
+- Intelligence question or draft judgment
+- Current evidence set
+- Existing assumptions or confidence statement
+
+## Helpful Inputs
+- Consumer decision deadline
+- Collection constraints
+- Indicator list or prior gap assessments
 
 ## Workflow
-1. Identify what must be known to answer the question credibly.
-2. Compare those requirements to the evidence currently in hand.
-3. Distinguish critical gaps from nice-to-have context.
-4. Call out missing disconfirming evidence, not just missing supporting evidence.
-5. Prioritize next collection or analytic actions by expected value.
+1. List the known unknowns that materially affect the answer.
+2. Distinguish between critical gaps, secondary gaps, and context gaps.
+3. Explain how each gap affects confidence, scope, or the plausibility of alternatives.
+4. Identify what evidence would close or narrow each gap.
+5. Recommend collection moves that would most reduce uncertainty.
+6. Return a ranked gap list with watch items and collection implications.
+
+## Templates To Reuse
+- Use the gap register and short update template in [Templates](../../references/shared/templates.md).
+
+## Quality Bar
+- Gaps should be stated as missing evidence, not generic uncertainty.
+- Priorities should reflect analytic impact, not ease of collection.
+- The output should connect gaps to the current confidence level.
+- Low-value open questions should not dilute the critical list.
+
+## Common Failure Modes
+- Listing too many minor unknowns.
+- Confusing disagreement with a true gap.
+- Failing to say how a gap affects the judgment.
+- Recommending collection with no reason it would change the analysis.
 
 ## Output Contract
-- `status`: `complete`, `partial`, or `blocked`
-- `primary_output`: Prioritized gap list; Collection priorities; Impact of each gap on confidence
-- `assumptions_used`: assumptions required to proceed without user follow-up
-- `missing_inputs`: missing but non-blocking context
-- `confidence`: confidence in the artifact or routing decision
-- `recommended_next_skill`: next skill folder name or `null`
-- `blocker_reason`: present only when `status` is `blocked`
+- `status`: `complete` when the skill can deliver its artifact, `partial` when it can advance but key context is missing, `blocked` only when the task cannot safely proceed.
+- `primary_output`: the primary artifact described below.
+- `assumptions_used`: explicit assumptions carried to keep the workflow moving.
+- `missing_inputs`: the highest-value missing context, evidence, or constraints.
+- `confidence`: a concise confidence statement tied to evidence quality and scope fit.
+- `recommended_next_skill`: the best next skill in the pack, or `null` if the workflow can stop here.
+- `blocker_reason`: include only when `status` is `blocked`.
 
 ## Cross-Links
-- Upstream: [Craft Intelligence Question](../craft-intelligence-question/SKILL.md), [Research and Collection](../research-and-collection/SKILL.md), [Intelligence Analysis](../intelligence-analysis/SKILL.md)
-- Downstream: [Research and Collection](../research-and-collection/SKILL.md), [Estimative Probability](../estimative-probability/SKILL.md), [Defend Analytic Conclusion](../defend-analytic-conclusion/SKILL.md)
-- Companions: [Source Evaluation](../source-evaluation/SKILL.md)
+- Upstream: [Research and Collection](../research-and-collection/SKILL.md), [Source Evaluation](../source-evaluation/SKILL.md), [Intelligence Analysis](../intelligence-analysis/SKILL.md)
+- Downstream: [Research and Collection](../research-and-collection/SKILL.md), [Defend Analytic Conclusion](../defend-analytic-conclusion/SKILL.md), [Estimative Probability](../estimative-probability/SKILL.md)
+- Companions: [Critical Thinking](../critical-thinking/SKILL.md), [Misinformation and Disinformation Analysis](../misinformation-disinformation-analysis/SKILL.md), [Analysis of Competing Hypotheses](../analysis-of-competing-hypotheses/SKILL.md)
 
 ## Shared Doctrine
-Read and apply: [Analytical Contract](../../references/shared/analytical-contract.md), [Evidence Ledger Template](../../references/shared/evidence-ledger-template.md), [Confidence Language](../../references/shared/confidence-language.md), [Autonomous Execution Policy](../../references/shared/autonomous-execution-policy.md).
+Read and apply: [Analytical Contract](../../references/shared/analytical-contract.md), [Analytic Standards](../../references/shared/analytic-standards.md), [Tradecraft Foundations](../../references/shared/tradecraft-foundations.md), [Confidence Language](../../references/shared/confidence-language.md), [Templates](../../references/shared/templates.md).

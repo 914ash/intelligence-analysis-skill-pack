@@ -1,6 +1,6 @@
 ---
 name: key-judgments-writing
-description: Draft and refine key judgments for intelligence products. Use when an agent needs short, defensible, high-signal judgments with confidence and caveats.
+description: Produce standalone judgments that can survive extraction from the full product. Use when a report needs a concise judgment list for leaders or briefers.
 ---
 
 # Key Judgments Writing
@@ -9,35 +9,83 @@ description: Draft and refine key judgments for intelligence products. Use when 
 Produce standalone judgments that can survive extraction from the full product.
 
 ## Autonomous Execution
-- Do not ask the user clarifying questions during autonomous runs.
-- If context is missing, state assumptions and continue with the safest reversible path.
-- Return missing information in `missing_inputs` instead of prompting a human.
-- Set `status` to `blocked` only when the task is impossible or unsafe without external input.
+- Use this skill as a method guide first; keep the tradecraft artifact separate from any outer workflow envelope.
+- If context is missing, record the assumption, keep facts, inferences, assumptions, and gaps distinct, and continue on the safest reversible path.
+- When the skill is embedded in a workflow engine, preserve `status`, `assumptions_used`, `missing_inputs`, `confidence`, `recommended_next_skill`, and `blocker_reason` only when blocked.
+
+## Use When
+- The consumer needs a short set of top judgments.
+- The report may be excerpted or briefed verbally.
+- Each judgment must remain intelligible outside the main body.
+
+## Do Not Use When
+- The analysis is still too unsettled to summarize cleanly.
+- The task is only a headline or title.
+- The material is mostly descriptive background.
 
 ## Required Inputs
-- Structured findings
-- Confidence level
-- Audience and product length
+- Final or near-final judgments
+- Confidence language
+- Core support points
+
+## Helpful Inputs
+- Decision context
+- Ordering priority
+- Length limit
 
 ## Workflow
-1. Write each judgment as a complete proposition, not a topic label.
-2. Include confidence when it materially affects how the consumer should use the judgment.
-3. Avoid stacking multiple distinct claims into one judgment.
-4. Check that each judgment can be defended from the evidence base.
+1. List the few judgments the consumer must remember.
+2. Write each as a standalone proposition in plain language.
+3. Attach confidence or caveat where it materially matters.
+4. Order the judgments by consequence or decision value.
+5. Check that each judgment still makes sense if read alone.
+
+## Mini Template
+```md
+
+## Key Judgments
+- [Most important judgment] ([confidence])
+- [Second judgment] ([confidence])
+- [Third judgment] ([confidence])
+```
+
+## Example
+```md
+
+## Key Judgments
+- We assess with high confidence that the network is using commercial shipping cover to move dual-use components.
+- We assess with moderate confidence that the current surge in procurement activity is tied to expansion rather than stock replacement.
+- We assess with low confidence that a parallel financing channel runs through the Gulf, although recent transfers make this more plausible.
+```
+
+## Templates To Reuse
+- Use the key judgments block and long memo template in [Templates](../../references/shared/templates.md).
+
+## Quality Bar
+- Each judgment should be specific and self-contained.
+- The ordering should reflect importance.
+- Confidence should be visible when needed.
+- The list should be short enough to scan quickly.
+
+## Common Failure Modes
+- Writing mini paragraphs instead of judgments.
+- Making the statements too vague to stand alone.
+- Hiding key caveats in the body only.
+- Including too many items.
 
 ## Output Contract
-- `status`: `complete`, `partial`, or `blocked`
-- `primary_output`: Ranked key judgments; Confidence and caveat notes
-- `assumptions_used`: assumptions required to proceed without user follow-up
-- `missing_inputs`: missing but non-blocking context
-- `confidence`: confidence in the artifact or routing decision
-- `recommended_next_skill`: next skill folder name or `null`
-- `blocker_reason`: present only when `status` is `blocked`
+- `status`: `complete` when the skill can deliver its artifact, `partial` when it can advance but key context is missing, `blocked` only when the task cannot safely proceed.
+- `primary_output`: the primary artifact described below.
+- `assumptions_used`: explicit assumptions carried to keep the workflow moving.
+- `missing_inputs`: the highest-value missing context, evidence, or constraints.
+- `confidence`: a concise confidence statement tied to evidence quality and scope fit.
+- `recommended_next_skill`: the best next skill in the pack, or `null` if the workflow can stop here.
+- `blocker_reason`: include only when `status` is `blocked`.
 
 ## Cross-Links
-- Upstream: [Intelligence Analysis](../intelligence-analysis/SKILL.md), [Estimative Probability](../estimative-probability/SKILL.md), [Defend Analytic Conclusion](../defend-analytic-conclusion/SKILL.md)
-- Downstream: [BLUF Writing](../bluf-writing/SKILL.md), [Intelligence Writing](../intelligence-writing/SKILL.md), [Analytic Title Writing](../analytic-title-writing/SKILL.md)
-- Companions: [What / So What Statement](../what-so-what-statement/SKILL.md)
+- Upstream: [Intelligence Analysis](../intelligence-analysis/SKILL.md), [Defend Analytic Conclusion](../defend-analytic-conclusion/SKILL.md), [Estimative Probability](../estimative-probability/SKILL.md)
+- Downstream: [BLUF Writing](../bluf-writing/SKILL.md), [Analytic Title Writing](../analytic-title-writing/SKILL.md), [Intelligence Writing](../intelligence-writing/SKILL.md)
+- Companions: [What / So What Statement](../what-so-what-statement/SKILL.md), [Inverted Pyramid Writing](../inverted-pyramid-writing/SKILL.md)
 
 ## Shared Doctrine
-Read and apply: [Writing Patterns](../../references/shared/writing-patterns.md), [Confidence Language](../../references/shared/confidence-language.md), [Analytical Contract](../../references/shared/analytical-contract.md), [Autonomous Execution Policy](../../references/shared/autonomous-execution-policy.md).
+Read and apply: [Analytical Contract](../../references/shared/analytical-contract.md), [Analytic Standards](../../references/shared/analytic-standards.md), [Writing Patterns](../../references/shared/writing-patterns.md), [Confidence Language](../../references/shared/confidence-language.md), [Templates](../../references/shared/templates.md).

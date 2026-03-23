@@ -16,3 +16,13 @@ Use Delphi when the problem is complex, evidence is fragmented, and expert judgm
 
 ## Output Expectations
 Record the consensus level, the main dissenting view, confidence, and the evidence or assumptions driving disagreement.
+
+## Round Design Template
+
+| Field | Prompt |
+| --- | --- |
+| Question | What exactly is the panel being asked to judge? |
+| Panel criteria | What expertise qualifies participation? |
+| Round count | How many rounds will run before review? |
+| Convergence rule | What counts as enough agreement or stable disagreement? |
+| Feedback package | What statistics and anonymized rationales will be returned between rounds? |

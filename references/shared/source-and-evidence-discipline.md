@@ -12,3 +12,9 @@
 - Treat anonymous or low-access reporting as provisional until corroborated.
 - Note when a source is reliable but the current claim is weak, or vice versa.
 - Record what evidence would upgrade or downgrade the claim.
+
+## Additional Checks
+- Look for dependence and circular sourcing before counting reports as corroboration.
+- Separate observed facts from interpretation supplied by the source.
+- Note when translation, reposting, or summarization may have altered the original meaning.
+- Treat deception risk as a standing possibility when sources have incentive, history, or opportunity to manipulate.

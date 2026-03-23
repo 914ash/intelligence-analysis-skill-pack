@@ -1,6 +1,6 @@
 ---
 name: formal-vs-informal-problem-solving
-description: Choose whether a question needs lightweight reasoning or a formal structured analytic technique. Use when an agent must select the right level of rigor before analysis begins.
+description: Match the problem shape and stakes to the right level of analytical structure. Use when a workflow needs to choose between lightweight reasoning and a formal method.
 ---
 
 # Formal vs Informal Problem Solving
@@ -9,35 +9,68 @@ description: Choose whether a question needs lightweight reasoning or a formal s
 Match the problem shape and stakes to the right level of analytical structure.
 
 ## Autonomous Execution
-- Do not ask the user clarifying questions during autonomous runs.
-- If context is missing, state assumptions and continue with the safest reversible path.
-- Return missing information in `missing_inputs` instead of prompting a human.
-- Set `status` to `blocked` only when the task is impossible or unsafe without external input.
+- Use this skill as a method guide first; keep the tradecraft artifact separate from any outer workflow envelope.
+- If context is missing, record the assumption, keep facts, inferences, assumptions, and gaps distinct, and continue on the safest reversible path.
+- When the skill is embedded in a workflow engine, preserve `status`, `assumptions_used`, `missing_inputs`, `confidence`, `recommended_next_skill`, and `blocker_reason` only when blocked.
+
+## Use When
+- The workflow needs to decide whether lightweight reasoning is sufficient or a formal SAT is warranted.
+- Stakes, ambiguity, or competing explanations are high enough to justify method selection.
+- A team needs a defensible reason for choosing one analytic path over another.
+
+## Do Not Use When
+- The method is already chosen and accepted.
+- The task is already deep inside a specific technique.
+- The problem is purely editorial.
 
 ## Required Inputs
-- Scoped question
-- Evidence quality snapshot
-- Time pressure and consequence of error
+- Intelligence question or problem statement
+- Stakes, uncertainty, or ambiguity indicators
+- Current evidence maturity
+
+## Helpful Inputs
+- Consumer deadline
+- Known competing explanations
+- Historical failure patterns or bias concerns
 
 ## Workflow
-1. Assess stakes, ambiguity, number of plausible explanations, and auditability needs.
-2. Decide whether informal synthesis is sufficient or whether a structured method is required.
-3. If formal analysis is needed, nominate the best-fit method and explain why.
-4. Set trigger conditions for escalating from informal to formal analysis later.
+1. Restate the problem, stakes, and decision timeline.
+2. Evaluate ambiguity, uncertainty, and the number of plausible explanations.
+3. Assess whether the dominant risk is speed, complexity, bias, or evidentiary weakness.
+4. Decide whether informal reasoning is adequate or a formal SAT is needed.
+5. Recommend the specific next technique and why it fits better than the nearest alternative.
+6. Return the routing decision with assumptions and caveats.
+
+## Templates To Reuse
+- Use the alternative comparison, ACH matrix, and TRACE worksheet in [Templates](../../references/shared/templates.md).
+
+## Quality Bar
+- The recommendation should be traceable to problem characteristics.
+- The rationale should explain why heavier methods are or are not warranted.
+- The nearest rejected option should be named when useful.
+- The recommendation should lower analytic risk, not add process for its own sake.
+
+## Common Failure Modes
+- Recommending a formal method because it sounds rigorous.
+- Under-structuring a high-stakes question because time is short.
+- Ignoring the bias risk a challenge technique could reduce.
+- Returning a generic method recommendation.
 
 ## Output Contract
-- `status`: `complete`, `partial`, or `blocked`
-- `primary_output`: Recommended analysis mode; Selected method or rationale for staying lightweight; Escalation triggers
-- `assumptions_used`: assumptions required to proceed without user follow-up
-- `missing_inputs`: missing but non-blocking context
-- `confidence`: confidence in the artifact or routing decision
-- `recommended_next_skill`: next skill folder name or `null`
-- `blocker_reason`: present only when `status` is `blocked`
+- `status`: `complete` when the skill can deliver its artifact, `partial` when it can advance but key context is missing, `blocked` only when the task cannot safely proceed.
+- `primary_output`: the primary artifact described below.
+- `assumptions_used`: explicit assumptions carried to keep the workflow moving.
+- `missing_inputs`: the highest-value missing context, evidence, or constraints.
+- `confidence`: a concise confidence statement tied to evidence quality and scope fit.
+- `recommended_next_skill`: the best next skill in the pack, or `null` if the workflow can stop here.
+- `blocker_reason`: include only when `status` is `blocked`.
+The primary artifact should include: Method recommendation; rationale; assumptions; next-skill routing decision
+If this skill is part of a larger workflow, keep the outer fields `status`, `assumptions_used`, `missing_inputs`, `confidence`, `recommended_next_skill`, and `blocker_reason` only when the run is truly blocked.
 
 ## Cross-Links
 - Upstream: [Craft Intelligence Question](../craft-intelligence-question/SKILL.md), [Intelligence Analysis Router](../intelligence-analysis-router/SKILL.md)
-- Downstream: [Analysis of Competing Hypotheses](../analysis-of-competing-hypotheses/SKILL.md), [Team A / Team B Analysis](../team-a-team-b-analysis/SKILL.md), [Alternative Analysis](../alternative-analysis/SKILL.md), [TRACE Technique](../trace-technique/SKILL.md), [Intelligence Analysis](../intelligence-analysis/SKILL.md)
-- Companions: [Critical Thinking](../critical-thinking/SKILL.md)
+- Downstream: [Analysis of Competing Hypotheses](../analysis-of-competing-hypotheses/SKILL.md), [Alternative Analysis](../alternative-analysis/SKILL.md), [TRACE Technique](../trace-technique/SKILL.md)
+- Companions: [Critical Thinking](../critical-thinking/SKILL.md), [Team A / Team B Analysis](../team-a-team-b-analysis/SKILL.md), [Delphi Method](../delphi-method/SKILL.md)
 
 ## Shared Doctrine
-Read and apply: [Workflow Sequencing](../../references/shared/workflow-sequencing.md), [Analytical Contract](../../references/shared/analytical-contract.md), [Autonomous Execution Policy](../../references/shared/autonomous-execution-policy.md).
+Read and apply: [Analytical Contract](../../references/shared/analytical-contract.md), [Analytic Standards](../../references/shared/analytic-standards.md), [Tradecraft Foundations](../../references/shared/tradecraft-foundations.md), [Structured Technique Selection](../../references/shared/structured-technique-selection.md), [Structured Analytic Techniques Primer](../../references/shared/structured-analytic-techniques-primer.md).

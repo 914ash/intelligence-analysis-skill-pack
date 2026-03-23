@@ -1,0 +1,15 @@
+https://intelligenceshop.com/
+https://intelligenceshop.com/raw/
+
+Writing Style: 
+https://www.thecipherbrief.com/
+https://www.semafor.com/newsletter/03/20/2026/semafor-flagship-a-new-unstable-normal
+
+
+Analytic Standards: https://www.dni.gov/files/documents/ICD/ICD-203.pdf
+
+
+Estimative Language: https://www.cisecurity.org/ms-isac/services/words-of-estimative-probability-analytic-confidences-and-structured-analytic-techniques
+
+Structured Analytic techniques: https://www.hsdl.org/?view&did=20945v9 (mirrored in this repo as `references/source-docs/us-government-structured-analytic-techniques-primer-2009.md`)
+

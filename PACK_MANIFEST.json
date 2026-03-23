@@ -1,6 +1,6 @@
 {
   "name": "intelligence-skill-pack",
-  "version": "2026-03-20",
+  "version": "2026-03-21",
   "entry_skill": "intelligence-analysis-router",
   "topic_discovery_skill": "find-intelligence-topics",
   "runtime": {

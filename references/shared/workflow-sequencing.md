@@ -11,7 +11,8 @@ The default order is:
 
 Route into a structured method when the question has high stakes, multiple plausible explanations, or high uncertainty.
 
-## Autonomous Default
-- Prefer completion with explicit assumptions over conversational clarification.
-- Treat missing context as an analytical condition to report, not as a reason to ask the user a question.
+## Working Default
+- Prefer completion with explicit assumptions over unnecessary clarification loops.
+- Treat missing context as an analytical condition to report, not as a reason to skip the method.
 - Reserve `blocked` for truly unsafe or impossible execution states.
+- Treat writing as the final delivery step, not as a substitute for source evaluation or alternative analysis.
